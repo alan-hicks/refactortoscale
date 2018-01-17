@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumb_menu %}
+<li>
+    <a href="{% url "home" %}">Home</a>
+</li>
+<li class="active">{{ type }}</li>
+{% endblock %}
+
+{% block main %}
+<p>Wise choice {{ preference.name }}</p>
+<p>An email is on its way with exciting news about {{ preference.fruit_name }}</p>
+{% endblock %}

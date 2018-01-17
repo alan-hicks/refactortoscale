@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block breadcrumb_menu %}
+<li>
+    <a href="{% url "home" %}">Home</a>
+</li>
+<li class="active">{{ type }}</li>
+{% endblock %}
+
+{% block main %}
+<form method="post" action="{% url type %}">
+    <div class="form-group">
+        <label>Example form submission</label>
+        {{ type }}
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" name="name">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" type="email" name="email">
+    </div>
+    <div>
+        <label>Your preferred fruit</label>
+        <select class="form-control" name="fruit">
+        {% for choice in choices %}
+	    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %}
+	</select>
+    </div>
+    <div>
+        <label>Make your choice today</label>
+        <button class="btn btn-primary form-control" type="submit" >Submit</button>
+        {% csrf_token %}
+    </div>
+</form>
+{% endblock %}

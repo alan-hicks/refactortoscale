@@ -1,0 +1,10 @@
+{% block main %}
+Dear {{ preference.name }},
+
+Thank you for choosing {{ preference.fruit_name }}.
+
+This email has exciting news about {{ preference.fruit_name }}.
+
+Thanks once again,
+The Refactor to Scale team.
+{% endblock %}
